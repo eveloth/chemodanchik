@@ -16,15 +16,12 @@ public static class MvcOptionsExtesions
     }
 }
 
-public partial class ToSlugCaseTransformerConvention : IOutboundParameterTransformer
+public class ToSlugCaseTransformerConvention : IOutboundParameterTransformer
 {
+    private readonly Regex _regex = new("([a-z])([A-Z])");
+
     public string? TransformOutbound(object? value)
     {
-        return value is null
-            ? null
-            : ToSlugCaseTransformerRegex().Replace(value.ToString()!, "$1-$2").ToLower();
+        return value is null ? null : _regex.Replace(value.ToString()!, "$1-$2").ToLower();
     }
-
-    [GeneratedRegex("([a-z])([A-Z])")]
-    private static partial Regex ToSlugCaseTransformerRegex();
 }
