@@ -12,6 +12,7 @@
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/eveloth/chemodanchik</RepositoryUrl>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <Authors>Vadim Komissarov (Stepanov), eveloth</Authors>
     </PropertyGroup>
 
@@ -24,6 +25,10 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+    </ItemGroup>
+    
+    <ItemGroup>
+        <None Include="../../README.md" Pack="true" PackagePath="/"/>
     </ItemGroup>
 
 </Project>
