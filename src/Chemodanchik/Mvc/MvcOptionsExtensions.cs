@@ -6,8 +6,13 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Chemodanchik.Mvc;
 
-public static class MvcOptionsExtesions
+public static class MvcOptionsExtensions
 {
+    /// <summary>
+    /// Transforms default CamelCase routes (i.e. /Api/AccessControl)
+    /// to slug case, also known as kebab case (i.e. /api/access-control)
+    /// </summary>
+    /// <param name="options">An instance of <see cref="MvcOptions"/> the method is called on</param>
     public static void UseSlugCaseRoutes(this MvcOptions options)
     {
         options.Conventions.Add(
